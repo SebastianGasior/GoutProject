@@ -1,0 +1,383 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url(Images/Header_one.png);
+  background-size: cover; /* Cover the entire container without stretching */
+  background-position: bottom; /* Center the image in the container */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  color: #0f0e0e;
+  padding: 1rem 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure header is above other elements */
+  box-sizing: border-box;
+  h1 {
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    
+  }
+}
+
+header li:hover, header .button:hover {
+  background-color: #555; /* A slightly lighter shade for hover effect */
+  color: #fff; /* Keeping text white */
+  text-decoration: none; /* Remove underline */
+}
+
+header li, header .button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+header a:hover {
+  color: #fff; /* Keep the text white on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Reset the margin to align properly */
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* creates a responsive number of columns */
+  grid-gap: 20px; /* space between grid items */
+  padding: 20px;
+  margin-top: 140px; /* adjust this value to accommodate the fixed header */
+}
+
+section {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  background-image: url(Images/Predict.png);
+  background-size: cover; /* Cover the entire container without stretching */
+  background-position: center; /* Center the image in the container */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  
+}
+#home {
+margin-top: 0px;
+background-image: url(Images/Search_2.png);
+background-size: cover; /* Cover the entire container without stretching */
+background-position: center; /* Center the image in the container */
+background-repeat: no-repeat; /* Do not repeat the image */
+height: 100vh; /* Full viewport height */
+h2,p {
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+}
+#search {
+  background-image: url(Images/Vegimage.png);
+  background-size: cover; /* Cover the entire container without stretching */
+  background-position: center; /* Center the image in the container */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  height: 100vh; /* Full viewport height */
+  h2,p {
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+  }
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-image: url(Images/Footer.png);
+  background-size: cover; /* Cover the entire container without stretching */
+  background-position: center; /* Center the image in the container */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  color: #080808;
+}
+
+main {
+  padding-top: 120px; /* Adjust this value to the height of your header */
+  transition: margin-left 0.5s;
+}
+
+#menu-container {
+  position: relative;
+}
+
+#sidebar {
+  position: fixed; /* changed from absolute to fixed */
+  top: 90px; /* Adjusted to the height of the header */
+  left: -250px; /* Initially hidden off-screen */
+  width: 200px; /* Width of the sidebar */
+  
+  height: calc(100% - 60px); /* Adjusted height considering the header */
+  transition: left 0.3s; /* Smooth transition for sidebar */
+  
+  background-image: url(Images/sidebar20.png);
+  background-size: auto; /* Cover the entire container without stretching */
+
+  background-repeat: repeat; /* Do not repeat the image */
+  padding: 1rem; /* Padding inside the sidebar */
+}
+
+body.menu-active main {
+  margin-left: 200px; /* Push the main content to the right */
+}
+
+#sidebar.show {
+  left: 0; /* Bring sidebar into view */
+}
+
+#sidebar ul {
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+  list-style-type: none; /* Remove bullet points */
+}
+
+#sidebar ul li {
+  padding: 10px 0; /* Add padding for each list item */
+  border-bottom: 1px solid #ccc; /* Separator for items */
+}
+
+#sidebar ul li a {
+  display: block; /* Make the link fill the li element */
+  color: #fbfafa; ; /* Color for the links */
+  padding: 10px; /* Padding for the links */
+  text-decoration: none; /* No underline for links */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+#sidebar ul li a:hover {
+  background-color: #000000; /* Hover effect for links */
+}
+
+#menu-toggle {
+  cursor: pointer;
+  position: fixed; /* Fixed position to toggle button */
+  z-index: 1200; /* Above everything else */
+  top: 60px; /* Distance from the top */
+  left: 18px; /* Distance from the left */
+  background-color: transparent; /* Background color for the sidebar */
+  color: #fff; /* Text color */
+  border: none; /* No border */
+  padding: 10px; /* Padding inside the button */
+  font-size: 20px; /* Increased font size */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+#menu-toggle:focus {
+  outline: none; /* Remove focus outline */
+}
+
+#purineContentInFoods {
+  width: 100%;
+  padding: 20px;
+}
+
+#vegetableCarousel .carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#vegetableCarousel .carousel-item {
+  display: none;
+  transition: transform 0.6s ease-in-out;
+}
+
+#vegetableCarousel .carousel-item.active {
+  display: block;
+}
+
+#vegetableCarousel img {
+  display: block; /* Remove default inline behavior */
+  max-width: 100%; /* Responsive images */
+  height: auto; /* Maintain aspect ratio */
+  position: relative;
+  border: 5px solid#333333; /* Double-line border */
+}
+
+#vegetableCarousel .carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 0px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.75); /* Black background with opacity */
+  h3 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 10px;
+  }
+
+}
+
+#vegetableCarousel .carousel-control-prev,
+#vegetableCarousel .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #1d1b1b;
+  width: auto;
+  height: auto;
+  padding: 0 25px;
+}
+
+#vegetableCarousel .carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px 5px;
+  text-indent: -999px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+
+#vegetableCarousel .carousel-indicators .active {
+  background-color: #333;
+}
+
+/* Left Arrow */
+.carousel-control-prev-icon {
+  filter: invert(100%) !important; /* Uses !important to override other styles if necessary */
+}
+
+/* Right Arrow */
+.carousel-control-next-icon {
+  filter: invert(100%) !important; /* Uses !important to override other styles if necessary */
+}
+
+/* Breakpoints for responsive adjustments */
+@media (max-width: 768px) {
+  #vegetableCarousel .carousel-caption {
+      right: 10%;
+      left: 10%;
+      background-color: rgba(0, 0, 0, 0.85);
+  }
+}
+
+@media (max-width: 576px) {
+  #vegetableCarousel .carousel-caption {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 12px;
+  }
+
+  #vegetableCarousel .carousel-control-prev,
+  #vegetableCarousel .carousel-control-next {
+      padding: 0 10px;
+  }
+}
+
+
+
+
+
+/* Responsive Styles */
+/* Responsive Styles for smaller screens */
+@media (max-width: 768px) {
+
+  /* Make the header non-fixed. It will scroll away with the page */
+  header {
+    position: static;
+  }
+
+  main {
+    padding-top: 20px; /* Adjust this value to the height of your header */
+  }
+
+  /* Remove the sidebar entirely from the flow */
+  #sidebar {
+    display: none; /* Hide sidebar */
+  }
+
+  /* Hide the menu toggle button since the sidebar is removed */
+  #menu-toggle {
+    display: none; /* Hide toggle button */
+  }
+
+  /* Adjust the main content margin since the sidebar is removed */
+  main {
+    margin: 0; /* Reset margins as sidebar is removed */
+  }
+
+  /* No longer need the menu-active class since sidebar is removed */
+  body.menu-active main {
+    margin-left: 0; /* Reset this margin as sidebar no longer exists */
+  }
+
+  /* Adjust content styles as needed for smaller screens */
+  section, footer, .other-content-classes {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 1000px) {
+
+  /* Make the header non-fixed. It will scroll away with the page */
+  header {
+    display: flex; /* Use flexbox for the header */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start of the header container */
+    padding: 1rem; /* Adjust padding as necessary */
+  }
+
+  header nav ul {
+    width: 100%; /* Full width to prevent overlap */
+    margin-left: 2.5rem; /* Add some space between the menu button and navigation links */
+  }
+
+
+  main {
+    padding-top: 20px; /* Adjust this value to the height of your header */
+  }
+
+ 
+
+  /* Adjust the main content margin since the sidebar is removed */
+  main {
+    margin: 0; /* Reset margins as sidebar is removed */
+  }
+
+ 
+
+  /* Adjust content styles as needed for smaller screens */
+  section, footer, .other-content-classes {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+}

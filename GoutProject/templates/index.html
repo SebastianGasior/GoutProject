@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purine Content and Gout Risk Prediction</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Container for the menu button and sidebar -->
+<div id="menu-container">
+    <!-- Toggle Button for Sidebar -->
+    <button id="menu-toggle">≡</button>
+
+    <!-- Sidebar Menu initially hidden -->
+    <nav id="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#search">Search Food</a></li>
+            <li><a href="#predict">Predict Gout Risk</a></li>
+            <li><a href="#checkYourRisk">Check Your Risk</a></li>
+            <li><a href="#purineContentInFoods">Purine Content in Foods</a></li>
+        </ul>
+    </nav>
+</div>
+
+    <header>
+        <h1>Purine Content and Gout Risk Prediction</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#search">Search Food</a></li>
+                <li><a href="#predict">Predict Gout Risk</a></li>
+                <li><a href="#checkYourRisk">Check Your Risk</a></li>
+                <li><a href="#purineContentInFoods">Purine Content in Foods</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="grid-container">
+    <main>
+        <section id="home">
+            <h2>Welcome to the Purine Content and Gout Risk Prediction Tool</h2>
+            <p>Learn about purines, uric acid, and gout. Search for foods to find their purine content and see if they are safe for you.</p>
+        </section>
+        <section id="search">
+            <h2>Search for Foods</h2>
+            <input type="text" id="foodSearch" placeholder="Enter food name">
+            <button id="searchButton">Search</button>
+            <div id="searchResults"></div>
+        </section>
+        <section id="predict">
+            <h2>Predict Your Gout Risk</h2>
+            <form id="predictionForm">
+                <label for="foodName">Food Name:</label>
+                <input type="text" id="foodName" name="foodName" required>
+        
+                <!-- You can remove the age and gender inputs if they are not used for the prediction -->
+                
+                <input type="submit" value="Predict Risk">
+            </form>
+            <div id="predictionResult"></div>
+        </section>        
+        <section id="checkYourRisk">
+            <h2>Check Your Risk</h2>
+            <p>Answer our simple gout quiz to find out if you may be at increased risk of developing gout.</p>
+            <form id="goutQuizForm">
+                <div class="quiz-question">
+                    <p>1. Are you male?</p>
+                    <label><input type="radio" name="male" value="yes"> Yes</label>
+                    <label><input type="radio" name="male" value="no"> No</label>
+                </div>
+                <div class="quiz-question">
+                    <p>2. Are you over the age of 40?</p>
+                    <label><input type="radio" name="ageOver40" value="yes"> Yes</label>
+                    <label><input type="radio" name="ageOver40" value="no"> No</label>
+                </div>
+                <div class="quiz-question">
+                    <p>3. Do other members of your family have gout?</p>
+                    <label><input type="radio" name="familyGout" value="yes"> Yes</label>
+                    <label><input type="radio" name="familyGout" value="no"> No</label>
+                </div>
+                <div class="quiz-question">
+                    <p>4. Do you drink more than 21 units of alcohol a week (if you are male) / or 14 units per week (if you are female)?</p>
+                    <label><input type="radio" name="alcoholConsumption" value="yes"> Yes</label>
+                    <label><input type="radio" name="alcoholConsumption" value="no"> No</label>
+                </div>
+                <div class="quiz-question">
+                    <p>5. Are you suffering from any of the following conditions?</p>
+                    <label><input type="checkbox" name="conditions" value="highBloodPressure"> High blood pressure</label>
+                    <label><input type="checkbox" name="conditions" value="diabetes"> Diabetes</label>
+                    <label><input type="checkbox" name="conditions" value="kidneyDisease"> Kidney disease/damage</label>
+                    <label><input type="checkbox" name="conditions" value="highCholesterol"> High cholesterol</label>
+                    <label><input type="checkbox" name="conditions" value="angina"> Angina</label>
+                    <label><input type="checkbox" name="conditions" value="psoriasis"> Long-term psoriasis</label>
+                </div>
+                <div class="quiz-question">
+                    <p>6. Are you overweight?</p>
+                    <label><input type="radio" name="overweight" value="yes"> Yes</label>
+                    <label><input type="radio" name="overweight" value="no"> No</label>
+                </div>
+                <div class="quiz-question">
+                    <p>7. Are you taking any of the following medications?</p>
+                    <label><input type="checkbox" name="medications" value="diuretics"> Diuretics (water tablets)</label>
+                    <label><input type="checkbox" name="medications" value="lowDoseAspirin"> Low dose aspirin</label>
+                    <label><input type="checkbox" name="medications" value="niacin"> Niacin to treat high cholesterol</label>
+                    <label><input type="checkbox" name="medications" value="antiRejectionDrugs"> Anti-rejection drugs following organ transplantation</label>
+                </div>
+                <div class="quiz-question">
+                    <p>8. Do you drink a lot of sugary drinks e.g. cola?</p>
+                    <label><input type="radio" name="sugaryDrinks" value="yes"> Yes</label>
+                    <label><input type="radio" name="sugaryDrinks" value="no"> No</label>
+                </div>
+                <div class="quiz-question">
+                    <p>9. Do you eat a large amount of the following purine-rich foods?</p>
+                    <label><input type="checkbox" name="purineRichFoods" value="beef"> Beef</label>
+                    <label><input type="checkbox" name="purineRichFoods" value="pork"> Pork</label>
+                    <label><input type="checkbox" name="purineRichFoods" value="bacon"> Bacon</label>
+                    <label><input type="checkbox" name="purineRichFoods" value="lamb"> Lamb</label>
+                    <label><input type="checkbox" name="purineRichFoods" value="seafood"> Seafood</label>
+                    <label><input type="checkbox" name="purineRichFoods" value="liver"> Liver</label>
+                    <label><input type="checkbox" name="purineRichFoods" value="kidney"> Kidney</label>
+                </div>
+                <div class="quiz-question">
+                    <p>10. Do you ever experience painful attacks and inflammation in your joints, particularly the big toe?</p>
+                    <label><input type="radio" name="jointPain" value="yes"> Yes</label>
+                    <label><input type="radio" name="jointPain" value="no"> No</label>
+                </div>
+                <div>
+                    <input type="submit" value="Check Risk">
+                </div>
+            </form>
+            <div id="riskResult"></div>
+        </section>
+        <section id="purineContentInFoods">
+          <h2>Purine Content in Foods</h2>
+          
+          <!-- Carousel container -->
+          <div id="vegetableCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                  <li data-target="#vegetableCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#vegetableCarousel" data-slide-to="1"></li>
+                  <li data-target="#vegetableCarousel" data-slide-to="2"></li>
+              </ol>
+            
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <div class="row">
+                          <!-- First image set -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Asparagus_Upper_Part.png" alt="Asparagus Upper Part" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Asparagus Upper Part</h3>
+                                  <p>Total Purines: 55.3mg, Uric Acid: 64.7mg, Group: 2</p>
+                              </div>
+                          </div>
+                          <!-- Second image -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Asparagus_Upper_Part.png" alt="Asparagus Lower Part" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Asparagus Lower Part</h3>
+                                  <p>Total Purines: 10.2mg, Uric Acid: 12mg, Group: 1</p>
+                              </div>
+                          </div>
+                          <!-- Third image -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Avocado.png" alt="Avocado" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Avocado</h3>
+                                  <p>Total Purines: 18.4mg, Uric Acid: 21.8mg, Group: 1</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="carousel-item">
+                      <div class="row">
+                          <!-- Fourth image set -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Balsam_Pear_Goya.png" alt="Balsam Pear (Goya)" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Balsam Pear (Goya)</h3>
+                                  <p>Total Purines: 9.9mg, Uric Acid: 11.6mg, Group: 1</p>
+                              </div>
+                          </div>
+                          <!-- Fifth image -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Bamboo_Shoot_Upper_Part.png" alt="Bamboo Shoot Upper Part" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Bamboo Shoot Upper Part</h3>
+                                  <p>Total Purines: 63.3mg, Uric Acid: 74mg, Group: 2</p>
+                              </div>
+                          </div>
+                          <!-- Sixth image -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Bamboo_Shoot_Lower_Part.png" alt="Bamboo Shoot Lower Part" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Bamboo Shoot Lower Part</h3>
+                                  <p>Total Purines: 30.8mg, Uric Acid: 36.1mg, Group: 1</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <div class="carousel-item">
+                      <div class="row">
+                          <!-- Seventh image set -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Bean_Sprouts.png" alt="Bean Sprouts" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Bean Sprouts</h3>
+                                  <p>Total Purines: 35mg, Uric Acid: 41.2mg, Group: 1</p>
+                              </div>
+                          </div>
+                          <!-- Eighth image -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Broccoli.png" alt="Broccoli" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Broccoli</h3>
+                                  <p>Total Purines: 70mg, Uric Acid: 81.8mg, Group: 2</p>
+                              </div>
+                          </div>
+                          <!-- Ninth image -->
+                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                              <img src="static/Images/Broccoli_Sprout.png" alt="Broccoli Sprout" class="d-block w-100">
+                              <div class="carousel-caption d-none d-md-block">
+                                  <h3>Broccoli Sprout</h3>
+                                  <p>Total Purines: 129.6mg, Uric Acid: 153mg, Group: 3</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#vegetableCarousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#vegetableCarousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+              </a>
+          </div>
+      </section>
+      
+      
+        
+    </main>
+</div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Purine Content and Gout Risk Prediction</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="static/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
